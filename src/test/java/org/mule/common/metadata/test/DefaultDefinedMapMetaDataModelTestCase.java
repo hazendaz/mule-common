@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.assertj.core.api.Assertions;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Before;
@@ -68,8 +69,8 @@ public class DefaultDefinedMapMetaDataModelTestCase {
 	public void testFields() {
 		assertNotNull(mapMetaDataModel.getFields());
 		assertEquals(2, mapMetaDataModel.getFields().size());
-		assertTrue(mapMetaDataModel.getFieldByName("field1").getMetaDataModel().getDataType().equals(DataType.STRING));
-		assertTrue(mapMetaDataModel.getFieldByName("field2").getMetaDataModel().getDataType().equals(DataType.NUMBER));
+		Assertions.assertThat(mapMetaDataModel.getFieldByName("field1").getMetaDataModel().getDataType().equals(DataType.STRING));
+		Assertions.assertThat(mapMetaDataModel.getFieldByName("field2").getMetaDataModel().getDataType().equals(DataType.NUMBER));
 	}
 
     @Test
